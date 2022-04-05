@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Usuario } from '../models/usuario';
 
@@ -9,16 +10,31 @@ import { Usuario } from '../models/usuario';
 })
 export class CadastraUsuarioComponent implements OnInit {
 
-  constructor(private cadastroService: CadastroService) {
+  // formControl: FormControl;
+  formGroup: FormGroup;
+  usuario: Usuario;
+  // nome: FormControl;
+  // fone: FormControl;
+  constructor(private cadastroService: CadastroService, private formBuilder: FormBuilder) {
+    this.usuario = new Usuario('','');
+    this.formGroup = this.formBuilder.group({
+      nome : [this.usuario.nome,Validators.required],
+      fone : [this.usuario.telefone,Validators.required],
+    })
   }
 
   ngOnInit(): void {
   }
 
+  // onSubmit() {
+  // TODO: Use EventEmitter with form value
+  //   console.warn(this.formGroup.value);
+  //   this.adicionar(this.formGroup.value['nome'],this.formGroup.value['fone']);
+  // }
+
   adicionar(nome:string, numero:string): void {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.adicionarUsuario(usuario);
-    console.log(this.cadastroService.listarUsuario());
   }
 
 }
