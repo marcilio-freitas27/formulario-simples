@@ -1,0 +1,25 @@
+<nav class="nav navbar navbar-dark bg-dark">
+  <div class="navbar-brend">
+    <li class="nav-item">
+      <a class="nav-link active text-white" routerLink="/">Cadastro de usuários</a>
+    </li>
+  </div>
+</nav>
+
+<h3 class="text-center m-3">Lista de usuários</h3>
+<div class="container p-3">
+  <table [hidden]="lista.length == 0" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let usuario of lista">
+      <tr>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.telefone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

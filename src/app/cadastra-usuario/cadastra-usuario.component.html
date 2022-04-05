@@ -1,0 +1,30 @@
+<nav class="nav navbar navbar-dark bg-dark">
+  <div class="navbar-brend">
+    <li class="nav-item">
+      <a class="nav-link active text-white" routerLink="/listar">Lista de usuários</a>
+    </li>
+  </div>
+</nav>
+
+<form role="form">
+  <h3 class="text-center m-3">Cadastro de usuários</h3>
+
+  <div class="container">
+    <div class="form-group m-3">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" class="form-control" id="" placeholder="Nome Sobrenome..." #novoNome>
+    </div>
+    <div class="form-group m-3">
+      <label for="fone">Telefone</label>
+      <input type="text" id="fone" name="fone" class="form-control" id="" placeholder="(xx) xxxxx-xxxx" #novoTelefone>
+    </div>
+
+    <div class="m-3">
+      <input type="button" class="btn btn-dark" value="Cadastrar" (click)="adicionar(
+        novoNome.value,
+        novoTelefone.value
+      )">
+    </div>
+  </div>
+</form>
+
