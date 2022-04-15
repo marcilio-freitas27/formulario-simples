@@ -18,4 +18,8 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
   }
 
+  excluir(index:number){
+    this.cadastroService.excluirUsuario(index);
+  }
+
 }

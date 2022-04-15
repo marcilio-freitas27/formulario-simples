@@ -13,12 +13,14 @@
       <tr>
         <th>Nome</th>
         <th>Telefone</th>
+        <th>Exclusão</th>
       </tr>
     </thead>
-    <tbody *ngFor="let usuario of lista">
+    <tbody *ngFor="let usuario of lista; index as i">
       <tr>
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.telefone }}</td>
+        <td><input class="btn btn-danger" type="button" (click)="excluir(i)" value="Excluir"></td>
       </tr>
     </tbody>
   </table>

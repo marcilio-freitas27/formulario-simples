@@ -17,4 +17,8 @@ export class CadastroService {
   adicionarUsuario(usuario: Usuario): void {
     this.user.push(usuario);
   }
+
+  excluirUsuario(index:number){
+    this.user.splice(index, 1);
+  }
 }
