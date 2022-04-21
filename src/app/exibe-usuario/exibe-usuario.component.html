@@ -14,6 +14,7 @@
         <th>Nome</th>
         <th>Telefone</th>
         <th>Exclusão</th>
+        <th>Edição</th>
       </tr>
     </thead>
     <tbody *ngFor="let usuario of lista; index as i">
@@ -21,7 +22,25 @@
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.telefone }}</td>
         <td><input class="btn btn-danger" type="button" (click)="excluir(i)" value="Excluir"></td>
+        <td><input class="btn btn-warning" type="button" (click)="editar(usuario.nome,usuario.telefone,i)" value="Editar"></td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<form #form>
+  <h3 class="text-center m-3">Edição de usuários</h3>
+  <div class="container">
+    <div class="form-group m-3">
+      <label for="nome2">Nome</label>
+      <input type="text" id="nome2" name="nome2" class="form-control" [value]="novo[count]?.nome" placeholder="Nome Sobrenome..." #nome2>
+    </div>
+    <div class="form-group m-3">
+      <label for="fone2">Telefone</label>
+      <input type="text" id="fone2" name="fone2" class="form-control" [value]="novo[count]?.telefone" placeholder="(xx) xxxxx-xxxx" #fone2>
+    </div>
+    <div class="m-3">
+      <input type="button" [disabled]="novo.length == 0" class="btn btn-success" value="Atualizar" (click)="atualizar(nome2.value, fone2.value,count,form)">
+    </div>
+  </div>
+</form>

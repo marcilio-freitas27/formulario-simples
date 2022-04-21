@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Usuario } from '../models/usuario';
 
@@ -20,7 +20,8 @@ export class CadastraUsuarioComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome : [this.usuario.nome,Validators.required],
       fone : [this.usuario.telefone,Validators.required],
-    })
+    });
+
   }
 
   ngOnInit(): void {
@@ -35,6 +36,8 @@ export class CadastraUsuarioComponent implements OnInit {
   adicionar(nome:string, numero:string): void {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.adicionarUsuario(usuario);
+    this.formGroup.reset();
   }
+
 
 }
