@@ -21,8 +21,27 @@ export class CadastroService {
     return this.new;
   }
 
-  adicionarUsuario(usuario: Usuario): void {
-    this.user.push(usuario);
+  usuarioExiste(usuario: Usuario):boolean{
+    if(this.user.find((dado) => dado.nome == usuario.nome)){
+      return true;
+    }
+    return false;
+  }
+
+  estaVazio(usuario: Usuario): boolean{
+    let dados = Object.values(usuario);
+    for (let i = 0; i < dados.length; i++) {
+      if (dados[i] == '') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  adicionarUsuario(usuario: Usuario){
+    if(!this.estaVazio(usuario) && !this.usuarioExiste(usuario)){
+      this.user.push(usuario);
+    }
   }
 
   excluirUsuario(index:number){
