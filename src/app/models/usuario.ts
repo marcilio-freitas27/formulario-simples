@@ -7,12 +7,4 @@ export class Usuario {
     this.telefone = telefone;
   }
 
-  // getNome():string {
-  //   return this.nome;
-  // }
-
-  // getTelefone():string {
-  //   return this.telefone;
-  // }
-
 }

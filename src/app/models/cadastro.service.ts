@@ -55,16 +55,13 @@ export class CadastroService {
   }
 
   editarUsuario(novo: Novousuario,index:number){
-    //clicando em editar, adiciona os novos dados inseridos em usuario para novousuario
     this.new.push(novo);
     index = this.new.indexOf(novo);
-    console.log(index);
   }
 
   atualizarUsuario(usuario:Usuario,id:number){
     this.user[id].nome = usuario.nome;
     this.user[id].telefone = usuario.telefone;
-    console.log("index:",id,"nome:",this.user[id].nome,"fone:",this.user[id].telefone);
     this.new.splice(id, 1);
   }
 }

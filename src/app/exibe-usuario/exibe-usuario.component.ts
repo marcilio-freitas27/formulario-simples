@@ -37,13 +37,7 @@ export class ExibeUsuarioComponent implements OnInit {
   atualizar(nome:string, numero:string,id:number,form:HTMLFormElement){
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario,id);
-    // for (const nv of this.novo) {
-    //   this.count = this.novo.indexOf(nv);
-    // }
-    console.log(this.count)
     form.reset();
-    // console.log(this.cadastroService.atualizarUsuario(usuario,id));
-    //console.log("index: ",this.novo.indexOf(usuario));
     }
 
 }
