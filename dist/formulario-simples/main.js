@@ -126,8 +126,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class CadastraUsuarioComponent {
-    // nome: FormControl;
-    // fone: FormControl;
     constructor(cadastroService, formBuilder) {
         this.cadastroService = cadastroService;
         this.formBuilder = formBuilder;
@@ -139,11 +137,6 @@ class CadastraUsuarioComponent {
     }
     ngOnInit() {
     }
-    // onSubmit() {
-    // TODO: Use EventEmitter with form value
-    //   console.warn(this.formGroup.value);
-    //   this.adicionar(this.formGroup.value['nome'],this.formGroup.value['fone']);
-    // }
     adicionar(nome, numero) {
         const usuario = new _models_usuario__WEBPACK_IMPORTED_MODULE_0__.Usuario(nome, numero);
         this.cadastroService.adicionarUsuario(usuario);
@@ -270,17 +263,11 @@ class ExibeUsuarioComponent {
     atualizar(nome, numero, id, form) {
         const usuario = new _models_usuario__WEBPACK_IMPORTED_MODULE_1__.Usuario(nome, numero);
         this.cadastroService.atualizarUsuario(usuario, id);
-        // for (const nv of this.novo) {
-        //   this.count = this.novo.indexOf(nv);
-        // }
-        console.log(this.count);
         form.reset();
-        // console.log(this.cadastroService.atualizarUsuario(usuario,id));
-        //console.log("index: ",this.novo.indexOf(usuario));
     }
 }
 ExibeUsuarioComponent.ɵfac = function ExibeUsuarioComponent_Factory(t) { return new (t || ExibeUsuarioComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_models_cadastro_service__WEBPACK_IMPORTED_MODULE_2__.CadastroService)); };
-ExibeUsuarioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ExibeUsuarioComponent, selectors: [["app-exibe-usuario"]], decls: 37, vars: 5, consts: [[1, "nav", "navbar", "navbar-dark", "bg-dark"], [1, "navbar-brend"], [1, "nav-item"], ["routerLink", "/", 1, "nav-link", "active", "text-white"], [1, "text-center", "m-3"], [1, "container", "p-3"], [1, "table", "table-bordered", "table-hover", 3, "hidden"], [4, "ngFor", "ngForOf"], ["form", ""], [1, "container"], [1, "form-group", "m-3"], ["for", "nome2"], ["type", "text", "id", "nome2", "name", "nome2", "placeholder", "Nome Sobrenome...", 1, "form-control", 3, "value"], ["nome2", ""], ["for", "fone2"], ["type", "text", "id", "fone2", "name", "fone2", "placeholder", "(xx) xxxxx-xxxx", 1, "form-control", 3, "value"], ["fone2", ""], [1, "m-3"], ["type", "button", "value", "Atualizar", 1, "btn", "btn-success", 3, "disabled", "click"], ["type", "button", "value", "Excluir", 1, "btn", "btn-danger", 3, "click"], ["type", "button", "value", "Editar", 1, "btn", "btn-warning", 3, "click"]], template: function ExibeUsuarioComponent_Template(rf, ctx) { if (rf & 1) {
+ExibeUsuarioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ExibeUsuarioComponent, selectors: [["app-exibe-usuario"]], decls: 37, vars: 3, consts: [[1, "nav", "navbar", "navbar-dark", "bg-dark"], [1, "navbar-brend"], [1, "nav-item"], ["routerLink", "/", 1, "nav-link", "active", "text-white"], [1, "text-center", "m-3"], [1, "container", "p-3"], [1, "table", "table-bordered", "table-hover", 3, "hidden"], [4, "ngFor", "ngForOf"], ["form", ""], [1, "container"], [1, "form-group", "m-3"], ["for", "nome2"], ["type", "text", "id", "nome2", "name", "nome2", "placeholder", "Nome Sobrenome...", 1, "form-control", 3, "[ngModel]"], ["nome2", ""], ["for", "fone2"], ["type", "text", "id", "fone2", "name", "fone2", "placeholder", "(xx) xxxxx-xxxx", 1, "form-control", 3, "[ngModel]"], ["fone2", ""], [1, "m-3"], ["type", "button", "value", "Atualizar", 1, "btn", "btn-success", 3, "disabled", "click"], ["type", "button", "value", "Excluir", 1, "btn", "btn-danger", 3, "click"], ["type", "button", "value", "Editar", 1, "btn", "btn-warning", 3, "click"]], template: function ExibeUsuarioComponent_Template(rf, ctx) { if (rf & 1) {
         const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
@@ -324,13 +311,17 @@ ExibeUsuarioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](26, "label", 11);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](27, "Nome");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](28, "input", 12, 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "input", 12, 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("[ngModel]", function ExibeUsuarioComponent_Template_input__ngModel__28_listener() { return ctx.novo[ctx.count] == null ? null : ctx.novo[ctx.count].nome; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](31, "label", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](32, "Telefone");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](33, "input", 15, 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](33, "input", 15, 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("[ngModel]", function ExibeUsuarioComponent_Template_input__ngModel__33_listener() { return ctx.novo[ctx.count] == null ? null : ctx.novo[ctx.count].telefone; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "div", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](36, "input", 18);
@@ -344,11 +335,7 @@ ExibeUsuarioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("hidden", ctx.lista.length == 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](11);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", ctx.lista);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("value", ctx.novo[ctx.count] == null ? null : ctx.novo[ctx.count].nome);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("value", ctx.novo[ctx.count] == null ? null : ctx.novo[ctx.count].telefone);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](17);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("disabled", ctx.novo.length == 0);
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLinkWithHref, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatusGroup], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJleGliZS11c3VhcmlvLmNvbXBvbmVudC5jc3MifQ== */"] });
 
@@ -378,29 +365,43 @@ class CadastroService {
     listarNovo() {
         return this.new;
     }
+    usuarioExiste(usuario) {
+        if (this.user.find((dado) => dado.nome == usuario.nome)) {
+            return true;
+        }
+        return false;
+    }
+    estaVazio(usuario) {
+        let dados = Object.values(usuario);
+        for (let i = 0; i < dados.length; i++) {
+            if (dados[i][i] == " ") {
+                return true;
+            }
+        }
+        return false;
+    }
     adicionarUsuario(usuario) {
-        this.user.push(usuario);
+        if (!this.estaVazio(usuario) && !this.usuarioExiste(usuario)) {
+            this.user.push(usuario);
+        }
     }
     excluirUsuario(index) {
-        this.user.splice(index, 1);
-        this.new.splice(index, 1);
-        if (this.user.length == 0) {
-            this.new.length == 0;
+        if (index != null) {
+            this.user.splice(index, 1);
+            this.new.splice(index, 1);
+            if (this.user.length == 0) {
+                this.new.length == 0;
+            }
         }
     }
     editarUsuario(novo, index) {
-        //clicando em editar, adiciona os novos dados inseridos em usuario para novousuario
         this.new.push(novo);
-        console.log(this.new.indexOf(novo));
+        index = this.new.indexOf(novo);
     }
     atualizarUsuario(usuario, id) {
         this.user[id].nome = usuario.nome;
         this.user[id].telefone = usuario.telefone;
-        console.log("index:", id, "nome:", this.user[id].nome, "fone:", this.user[id].telefone);
         this.new.splice(id, 1);
-    }
-    getIndex() {
-        //
     }
 }
 CadastroService.ɵfac = function CadastroService_Factory(t) { return new (t || CadastroService)(); };
