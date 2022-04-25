@@ -38,6 +38,6 @@ export class ExibeUsuarioComponent implements OnInit {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario,id);
     form.reset();
-    }
+  }
 
 }

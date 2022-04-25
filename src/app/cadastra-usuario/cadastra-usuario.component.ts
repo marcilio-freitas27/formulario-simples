@@ -14,8 +14,8 @@ export class CadastraUsuarioComponent implements OnInit {
   constructor(private cadastroService: CadastroService, private formBuilder: FormBuilder) {
     this.usuario = new Usuario('','');
     this.formGroup = this.formBuilder.group({
-      nome : [this.usuario.nome,Validators.required],
-      fone : [this.usuario.telefone,Validators.required],
+      nome : [this.usuario.nome,[Validators.required,Validators.minLength(3)]],
+      fone : [this.usuario.telefone,[Validators.required,Validators.minLength(11)]],
     });
 
   }
@@ -27,6 +27,14 @@ export class CadastraUsuarioComponent implements OnInit {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.adicionarUsuario(usuario);
     this.formGroup.reset();
+  }
+
+  get nome(){
+    return this.formGroup.get('nome');
+  }
+
+  get fone(){
+    return this.formGroup.get('fone');
   }
 
 }

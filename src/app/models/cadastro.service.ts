@@ -22,7 +22,7 @@ export class CadastroService {
   }
 
   usuarioExiste(usuario: Usuario):boolean{
-    if(this.user.find((dado) => dado.nome == usuario.nome)){
+    if(this.user.find((dado) => dado.telefone == usuario.telefone)){
       return true;
     }
     return false;
