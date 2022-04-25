@@ -16,17 +16,17 @@
     </div>
 
     <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert alert-danger alerta">
-      <div class="alerta" *ngIf="nome!.errors?.['required']">
+      <div *ngIf="nome!.errors?.['required']">
         O campo nome é obrigatório
       </div>
-      <div class="alerta" *ngIf="nome!.errors?.['minlength']">
+      <div *ngIf="nome!.errors?.['minlength']">
         O nome precisar ter um mínimo de 3 letras.
       </div>
     </div>
 
     <div class="alerta" class="form-group m-3">
       <label for="fone">Telefone</label>
-      <input type="text" id="fone" name="fone" class="form-control" id="fone" formControlName="fone" placeholder="(xx) xxxxx-xxxx" maxlength="11">
+      <input type="text" id="fone" name="fone" class="form-control" id="fone" formControlName="fone" placeholder="(xx) xxxxx-xxxx" maxlength="15">
     </div>
 
     <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert alert-danger alerta">
@@ -34,7 +34,7 @@
         O campo telefone é obrigatório.
       </div>
       <div class="alerta" *ngIf="fone!.errors?.['minlength']">
-        O telefone precisar ter um mínimo de 11 números.
+        O telefone precisar ter um mínimo de 15 números.
       </div>
     </div>
 

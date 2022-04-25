@@ -15,7 +15,7 @@ export class CadastraUsuarioComponent implements OnInit {
     this.usuario = new Usuario('','');
     this.formGroup = this.formBuilder.group({
       nome : [this.usuario.nome,[Validators.required,Validators.minLength(3)]],
-      fone : [this.usuario.telefone,[Validators.required,Validators.minLength(11)]],
+      fone : [this.usuario.telefone,[Validators.required,Validators.minLength(15)]],
     });
 
   }

@@ -13,10 +13,12 @@ export class ExibeUsuarioComponent implements OnInit {
   lista: Usuario[];
   novo: Novousuario[];
   count: number;
+  show: boolean;
   constructor(private cadastroService: CadastroService) {
     this.lista = [];
     this.novo = [];
     this.count = 0;
+    this.show = true;
    }
 
   ngOnInit(): void {
@@ -32,12 +34,14 @@ export class ExibeUsuarioComponent implements OnInit {
     const usuario = new Novousuario(nome, numero);
     this.cadastroService.editarUsuario(usuario,index);
     this.count = index;
+    this.show = false;
   }
 
   atualizar(nome:string, numero:string,id:number,form:HTMLFormElement){
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario,id);
     form.reset();
+    this.show = true;
   }
 
 }
