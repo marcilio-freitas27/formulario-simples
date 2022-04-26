@@ -60,8 +60,10 @@ export class CadastroService {
   }
 
   atualizarUsuario(usuario:Usuario,id:number){
-    this.user[id].nome = usuario.nome;
-    this.user[id].telefone = usuario.telefone;
-    this.new.splice(id, 1);
+    if(usuario.nome != "" && usuario.telefone != ""){
+      this.user[id].nome = usuario.nome;
+      this.user[id].telefone = usuario.telefone;
+      this.new.splice(id, 1);
+    }
   }
 }
