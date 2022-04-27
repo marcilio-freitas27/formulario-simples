@@ -28,19 +28,39 @@
   </table>
 </div>
 
-<form #form>
+<form [formGroup]="formGroup" [hidden]="show">
   <h3 class="text-center m-3">Edição de usuários</h3>
   <div class="container">
     <div class="form-group m-3">
       <label for="nome2">Nome</label>
-      <input type="text" id="nome2" name="nome2" class="form-control" ([ngModel])="novo[count]?.nome" placeholder="Nome Sobrenome..." maxlength="30" #nome2>
+      <input type="text" id="nome2" name="nome2" class="form-control" formControlName="nome" placeholder="Nome Sobrenome..." maxlength="30">
     </div>
+
+    <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert alert-danger alerta">
+      <div *ngIf="nome!.errors?.['required']">
+        O campo nome é obrigatório
+      </div>
+      <div *ngIf="nome!.errors?.['minlength']">
+        O nome precisar ter um mínimo de 3 letras.
+      </div>
+    </div>
+
     <div class="form-group m-3">
       <label for="fone2">Telefone</label>
-      <input type="text" id="fone2" name="fone2" class="form-control" ([ngModel])="novo[count]?.telefone" placeholder="(xx) xxxxx-xxxx" maxlength="15" #fone2>
+      <input type="text" id="fone2" name="fone2" class="form-control" formControlName="fone" placeholder="(xx) xxxxx-xxxx" maxlength="15">
     </div>
+
+    <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert alert-danger alerta">
+      <div class="alerta" *ngIf="fone!.errors?.['required']">
+        O campo telefone é obrigatório.
+      </div>
+      <div class="alerta" *ngIf="fone!.errors?.['minlength']">
+        O telefone precisar ter um mínimo de 15 caracteres.
+      </div>
+    </div>
+
     <div class="m-3">
-      <input type="button" [disabled]="show" class="btn btn-success" value="Atualizar" (click)="atualizar(nome2.value, fone2.value,count,form)">
+      <input type="button" [disabled]="!formGroup.valid" class="btn btn-success" value="Atualizar" (click)="atualizar(nome!.value, fone!.value,count)">
     </div>
   </div>
 </form>

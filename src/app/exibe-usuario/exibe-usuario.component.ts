@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
@@ -9,16 +10,22 @@ import { Usuario } from '../models/usuario';
   styleUrls: ['./exibe-usuario.component.css']
 })
 export class ExibeUsuarioComponent implements OnInit {
-
+  formGroup: FormGroup;
   lista: Usuario[];
+  usuario: Novousuario;
   novo: Novousuario[];
   count: number;
   show: boolean;
-  constructor(private cadastroService: CadastroService) {
+  constructor(private cadastroService: CadastroService, formBuilder: FormBuilder) {
     this.lista = [];
     this.novo = [];
     this.count = 0;
     this.show = true;
+    this.usuario = new Novousuario("","");
+    this.formGroup = formBuilder.group({
+      nome:[this.usuario.nome,[Validators.required,Validators.minLength(3)]],
+      fone:[this.usuario.telefone,[Validators.required,Validators.minLength(15)]]
+    })
    }
 
   ngOnInit(): void {
@@ -37,11 +44,19 @@ export class ExibeUsuarioComponent implements OnInit {
     this.show = false;
   }
 
-  atualizar(nome:string, numero:string,id:number,form:HTMLFormElement){
+  atualizar(nome:string, numero:string,id:number){
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario,id);
-    form.reset();
+    this.formGroup.reset();
     this.show = true;
+  }
+
+  get nome(){
+    return this.formGroup.get('nome');
+  }
+
+  get fone(){
+    return this.formGroup.get('fone');
   }
 
 }
