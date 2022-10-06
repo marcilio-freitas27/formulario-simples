@@ -31,6 +31,13 @@ export class ExibeUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
+    // retorna dados do usuario quando precisamos editar um campo
+
+    this.formGroup.patchValue({
+      nome: this.lista[0]['nome'],
+      fone: this.lista[0]['telefone']
+    })
+
   }
 
   excluir(count:number){

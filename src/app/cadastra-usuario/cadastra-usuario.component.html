@@ -1,52 +1,48 @@
 <nav class="nav navbar navbar-dark bg-dark">
   <div class="navbar-brend">
     <li class="nav-item">
-      <a class="nav-link active text-white" routerLink="/listar">Lista de usuários</a>
-    </li>
+      <a class="nav-link active text-white" routerLink="/listar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+        </svg>
+        Lista de usuários
+      </a>
+     </li>
   </div>
 </nav>
 
 <form [formGroup]="formGroup" role="form">
   <h3 class="text-center m-3">Cadastro de usuários</h3>
-
   <div class="container">
     <div class="form-group m-3">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" class="form-control" id="nome" formControlName="nome" placeholder="ex.: Nome Sobrenome..." minlength="3" maxlength="30">
-    </div>
-
-    <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert alert-danger alerta">
-      <div *ngIf="nome!.errors?.['required']">
-        O campo nome é obrigatório
-      </div>
-      <div *ngIf="nome!.errors?.['minlength']">
-        O nome precisar ter um mínimo de 3 letras.
-      </div>
-      <div *ngIf="nome!.errors?.['maxlength']">
-        O nome precisar ter um máximo de 30 letras.
-      </div>
-      <div class="alerta" *ngIf="nome!.errors?.['pattern']">
-        O nome não é válido.
+      <label for="nome">Nome:*</label>
+      <input type="text" id="nome" name="nome" class="form-control" formControlName="nome" placeholder="ex.: Nome Sobrenome..." minlength="3" maxlength="30">
+      <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert-background">
+        <small *ngIf="nome!.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome!.errors?.['minlength']">
+          Quantidade mínima de 3 letras.
+        </small>
+        <small class="alerta" *ngIf="nome!.errors?.['pattern']">
+          Insira apenas letras.
+        </small>
       </div>
     </div>
 
     <div class="alerta" class="form-group m-3">
-      <label for="fone">Telefone</label>
+      <label for="fone">Telefone:*</label>
       <input type="text" id="fone" name="fone" class="form-control" id="fone" formControlName="fone" mask="84988887777" placeholder="ex.: 84988887777" minlength="10" maxlength="11">
-    </div>
-
-    <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert alert-danger alerta">
-      <div class="alerta" *ngIf="fone!.errors?.['required']">
-        O campo telefone é obrigatório.
-      </div>
-      <div class="alerta" *ngIf="fone!.errors?.['maxlength']">
-        O telefone precisar ter um máximo de 11 números.
-      </div>
-      <div class="alerta" *ngIf="fone!.errors?.['minlength']">
-        O telefone precisar ter um máximo de 10 números.
-      </div>
-      <div class="alerta" *ngIf="fone!.errors?.['pattern']">
-        O telefone não é válido.
+      <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert-background">
+        <small class="alerta" *ngIf="fone!.errors?.['required']">
+          O campo telefone é obrigatório.
+        </small>
+        <small class="alerta" *ngIf="fone!.errors?.['minlength']">
+          Quantidade  mínimo de 10 números.
+        </small>
+        <small class="alerta" *ngIf="fone!.errors?.['pattern']">
+          Insira apenas números.
+        </small>
       </div>
     </div>
 
