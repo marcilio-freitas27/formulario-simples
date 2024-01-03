@@ -3,7 +3,7 @@ import { Novousuario } from './novousuario';
 import { Usuario } from './usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CadastroService {
   user: Usuario[];
@@ -13,54 +13,58 @@ export class CadastroService {
     this.new = [];
   }
 
-  listarUsuario(): Usuario[]{
+  listarUsuario(): Usuario[] {
     return this.user;
   }
 
-  listarNovo(): Novousuario[]{
+  listarNovo(): Novousuario[] {
     return this.new;
   }
 
-  usuarioExiste(usuario: Usuario):boolean{
-    if(this.user.find((dado) => dado.telefone == usuario.telefone)){
+  usuarioExiste(usuario: Usuario): boolean {
+    if (this.user.find((dado) => dado.nome == usuario.nome)) {
       return true;
     }
     return false;
   }
 
-  estaVazio(usuario: Usuario): boolean{
+  estaVazio(usuario: Usuario): boolean {
     let dados = Object.values(usuario);
     for (let i = 0; i < dados.length; i++) {
-      if (dados[i][i] == " ") {
+      if (dados[i][i] == ' ') {
         return true;
       }
     }
     return false;
   }
 
-  adicionarUsuario(usuario: Usuario){
-    if(!this.estaVazio(usuario) && !this.usuarioExiste(usuario)){
+  adicionarUsuario(usuario: Usuario) {
+    if (!this.estaVazio(usuario) && !this.usuarioExiste(usuario)) {
       this.user.push(usuario);
     }
   }
 
-  excluirUsuario(index:number){
-    if(index != null){
+  excluirUsuario(index: number) {
+    if (index != null) {
       this.user.splice(index, 1);
       this.new.splice(index, 1);
-      if(this.user.length == 0){
-        this.new.length == 0
+      if (this.user.length == 0) {
+        this.new.length == 0;
       }
     }
   }
 
-  editarUsuario(novo: Novousuario,index:number){
+  editarUsuario(novo: Novousuario, index: number) {
     this.new.push(novo);
     index = this.new.indexOf(novo);
   }
 
-  atualizarUsuario(usuario:Usuario,id:number){
-    if(usuario.nome != "" && usuario.telefone != "" && !this.usuarioExiste(usuario)){
+  atualizarUsuario(usuario: Usuario, id: number) {
+    if (
+      usuario.nome != '' ||
+      usuario.telefone != '' ||
+      !this.usuarioExiste(usuario)
+    ) {
       this.user[id].nome = usuario.nome;
       this.user[id].telefone = usuario.telefone;
       this.new.splice(id, 1);
