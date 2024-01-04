@@ -18,6 +18,7 @@ export class ExibeUsuarioComponent implements OnInit {
   count: number;
   show: boolean;
   faPlus = faPlus;
+  excluirUsuario:number = -1;
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder
@@ -61,8 +62,9 @@ export class ExibeUsuarioComponent implements OnInit {
     // })
   }
 
-  excluir(count: number) {
-    this.cadastroService.excluirUsuario(count);
+  excluir() {
+    this.cadastroService.excluirUsuario(this.excluirUsuario);
+    this.closeModal()
   }
 
   editar(nome: string, numero: string, index: number) {
@@ -70,6 +72,10 @@ export class ExibeUsuarioComponent implements OnInit {
     this.cadastroService.editarUsuario(usuario, index);
     this.count = index;
     this.show = false;
+  }
+
+  cancelar(){
+    this.show = true;
   }
 
   atualizar(nome: string, numero: string, id: number) {
@@ -90,11 +96,13 @@ export class ExibeUsuarioComponent implements OnInit {
   modal = 'modal';
   name = 'Angular';
 
-  openModal(inp: string) {
-    console.log(inp);
+  openModal(count: number) {
+    this.excluirUsuario = count;
     this.modal = 'modal-open';
   }
+
   closeModal() {
     this.modal = 'modal';
   }
+
 }

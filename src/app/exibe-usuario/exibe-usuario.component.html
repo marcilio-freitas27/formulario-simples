@@ -28,6 +28,7 @@
       </tr>
     </tbody>
   </table>
+
   <table [hidden]="lista?.length == 0" class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -41,7 +42,7 @@
       <tr>
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.telefone }}</td>
-        <td><input class="btn btn-danger" type="button" (click)="excluir(i)" value="Excluir"></td>
+        <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
         <td><input class="btn btn-warning" type="button" (click)="editar(usuario.nome,usuario.telefone,i)"
             value="Editar"></td>
       </tr>
@@ -86,37 +87,30 @@
       </div>
     </div>
     <div class="m-3">
-      <input type="button" [disabled]="!formGroup.valid" class="btn btn-success" value="Atualizar"
+      <input style="margin-right: 5px;" type="button" [disabled]="!formGroup.valid" class="btn btn-success" value="Atualizar"
         (click)="atualizar(nome!.value, fone!.value,count)">
-    </div>
-    <div class="container-fluid">
-
-      <!-- Button trigger modal -->
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        (click)="openModal('custom-modal-1')">
-        Launch demo modal
-      </button> -->
-
-      <!-- Modal -->
-      <!-- <div [ngClass]="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <input type="button" class="btn btn-danger" value="Cancelar"
+        (click)="cancelar()">
     </div>
   </div>
 </form>
+
+<div class="container-fluid">
+  <!-- Modal -->
+  <div [ngClass]="modal" tabindex="0" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Atenção</h5>
+        </div>
+        <div class="modal-body">
+          <p>Deseja realmente exluir o usuário?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Não</button>
+          <button type="button" class="btn btn-primary" (click)="excluir()">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
