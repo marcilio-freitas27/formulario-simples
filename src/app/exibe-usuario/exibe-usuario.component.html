@@ -1,15 +1,9 @@
 <nav class="nav navbar navbar-dark bg-dark">
   <div class="navbar-brend">
     <li class="nav-item">
-      <a class="nav-link active text-white" routerLink="/">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square"
-          viewBox="0 0 16 16">
-          <path
-            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-          <path
-            d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-        </svg>
-        Cadastro de usuários
+      <a class="nav-link active text-white" routerLink="/cadastrar">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        Cadastrar usuário
       </a>
     </li>
   </div>
@@ -17,6 +11,23 @@
 
 <h3 class="text-center m-3">Lista de usuários</h3>
 <div class="container p-3">
+  <table [hidden]="lista?.length != 0" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Exclusão</th>
+        <th>Edição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="4" style="text-align: center;">
+          Sem usuários
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <table [hidden]="lista?.length == 0" class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -77,6 +88,38 @@
     <div class="m-3">
       <input type="button" [disabled]="!formGroup.valid" class="btn btn-success" value="Atualizar"
         (click)="atualizar(nome!.value, fone!.value,count)">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col border">a</div>
+      </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        (click)="openModal('custom-modal-1')">
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div [ngClass]="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </form>

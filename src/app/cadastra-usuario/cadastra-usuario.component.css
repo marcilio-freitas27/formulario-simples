@@ -1,5 +1,8 @@
-.alert-background{
+.alert-background {
   background-color: white;
   color: red;
- }
+}
 
+fa-icon {
+  color: white;
+}

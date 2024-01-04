@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -16,6 +17,7 @@ export class ExibeUsuarioComponent implements OnInit {
   novo: Novousuario[];
   count: number;
   show: boolean;
+  faPlus = faPlus;
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder
@@ -83,5 +85,16 @@ export class ExibeUsuarioComponent implements OnInit {
 
   get fone() {
     return this.formGroup.get('fone');
+  }
+
+  modal = 'modal';
+  name = 'Angular';
+
+  openModal(inp: string) {
+    console.log(inp);
+    this.modal = 'modal-open';
+  }
+  closeModal() {
+    this.modal = 'modal';
   }
 }

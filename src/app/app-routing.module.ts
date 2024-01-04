@@ -4,8 +4,8 @@ import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.co
 import { ExibeUsuarioComponent } from './exibe-usuario/exibe-usuario.component';
 
 const routes: Routes = [
-  { path: "", component: CadastraUsuarioComponent },
-  { path: "listar", component: ExibeUsuarioComponent },
+  { path: "", component: ExibeUsuarioComponent },
+  { path: "cadastrar", component: CadastraUsuarioComponent },
 ];
 
 @NgModule({

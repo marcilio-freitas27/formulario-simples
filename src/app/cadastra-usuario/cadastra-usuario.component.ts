@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Usuario } from '../models/usuario';
+import { faList } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-cadastra-usuario',
   templateUrl: './cadastra-usuario.component.html',
@@ -12,6 +14,7 @@ export class CadastraUsuarioComponent implements OnInit {
   usuario: Usuario;
   lista: any[];
   duplicado: any;
+  faList = faList;
   constructor(
     private cadastroService: CadastroService,
     private formBuilder: FormBuilder
