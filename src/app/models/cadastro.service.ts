@@ -9,7 +9,12 @@ export class CadastroService {
   user: Usuario[];
   new: Novousuario[];
   constructor() {
-    this.user = [];
+    this.user = [
+      {
+        nome: 'Fulano',
+        telefone : '84999999999',
+      }
+    ];
     this.new = [];
   }
 

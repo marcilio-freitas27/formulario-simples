@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CadastroService } from '../models/cadastro.service';
 
 @Component({
@@ -8,8 +8,9 @@ import { CadastroService } from '../models/cadastro.service';
 })
 export class ModalExcluirUsuarioComponent implements OnInit {
 
-  modal = 'modal';
-  excluirUsuario:number = -1;
+  @Input() modal: any;
+  @Input() id: any;
+  @Input() excluirUsuario!:number;
   constructor(private cadastroService: CadastroService,) { }
 
   ngOnInit(): void {
@@ -20,22 +21,12 @@ export class ModalExcluirUsuarioComponent implements OnInit {
     this.closeModal()
   }
 
-  openModal(count: number) {
-    this.excluirUsuario = count;
-    let myModal: any = document.querySelector('body');
-    let myInput: any = document.getElementById('exampleModal');
-
-    myModal.style.opacity = 0.5;
-    myModal.style.zIndex = -1;
-    myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
-    myInput.style.zIndex = 1072;
-    this.modal = 'modal-open';
-  }
-
   closeModal() {
-    let myModal: any = document.querySelector('body');
-    myModal.style.opacity = 1;
-    myModal.style.backgroundColor = 'white';
+    // this.modal = 'modal-open';
+    console.log('modal', this.excluirUsuario, this.modal)
+    // let myModal: any = document.querySelector('body');
+    // myModal.style.opacity = 1;
+    // myModal.style.backgroundColor = 'white';
     this.modal = 'modal';
   }
 

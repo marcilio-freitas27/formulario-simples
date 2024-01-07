@@ -14,11 +14,13 @@ export class ExibeUsuarioComponent implements OnInit {
   formGroup: FormGroup;
   lista: Usuario[];
   usuario: Novousuario;
+  id:any = 'exampleModal'
   novo: Novousuario[];
   count: number;
   show: boolean;
   faPlus = faPlus;
-  excluirUsuario:number = -1;
+  excluirUsuario:number = 0;
+  modal:any = 'modal';
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder
@@ -62,11 +64,6 @@ export class ExibeUsuarioComponent implements OnInit {
     // })
   }
 
-  excluir() {
-    this.cadastroService.excluirUsuario(this.excluirUsuario);
-    this.closeModal()
-  }
-
   editar(nome: string, numero: string, index: number) {
     const usuario = new Novousuario(nome, numero);
     this.cadastroService.editarUsuario(usuario, index);
@@ -93,26 +90,17 @@ export class ExibeUsuarioComponent implements OnInit {
     return this.formGroup.get('fone');
   }
 
-  modal = 'modal';
-  name = 'Angular';
-
   openModal(count: number) {
     this.excluirUsuario = count;
-    let myModal: any = document.querySelector('body');
-    let myInput: any = document.getElementById('exampleModal');
+    // let myModal: any = document.querySelector('body');
+    // let myInput: any = document.getElementById(this.id);
 
-    myModal.style.opacity = 0.5;
-    myModal.style.zIndex = -1;
-    myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
-    myInput.style.zIndex = 1072;
+    // myModal.style.opacity = 0.5;
+    // myModal.style.zIndex = -1;
+    // myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
+    // myInput.style.zIndex = 1072;
     this.modal = 'modal-open';
   }
 
-  closeModal() {
-    let myModal: any = document.querySelector('body');
-    myModal.style.opacity = 1;
-    myModal.style.backgroundColor = 'white';
-    this.modal = 'modal';
-  }
 
 }
