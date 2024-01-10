@@ -8,6 +8,12 @@
         </a>
       </li>
     </div>
+    <div>
+      <form class="d-flex m-2" role="search">
+        <input #valor class="form-control me-2" type="text" placeholder="Ex.: Fulano" aria-label="Search">
+        <button class="btn btn-success" (click)="buscar(valor.value)" type="button">Buscar</button>
+      </form>
+    </div>
   </nav>
 
   <h3 class="text-center m-3">Lista de usuários</h3>
@@ -41,11 +47,16 @@
       </thead>
       <tbody *ngFor="let usuario of lista; index as i">
         <tr>
-          <td>{{ usuario.nome }}</td>
-          <td>{{ usuario.telefone }}</td>
-          <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
-          <td><input class="btn btn-warning" type="button" (click)="editar(usuario.nome,usuario.telefone,i)"
-              value="Editar"></td>
+          <ng-container *ngIf="value.toLowerCase() == usuario.nome.toLowerCase() || value == ''">
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.telefone }}</td>
+            <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
+            <td><input class="btn btn-warning" type="button" (click)="editar(usuario.nome,usuario.telefone,i)"
+                value="Editar"></td>
+          </ng-container>
+          <ng-container *ngIf="value != ''">
+            <!-- <td>Nenhum valor encontrado</td> -->
+          </ng-container>
         </tr>
       </tbody>
     </table>

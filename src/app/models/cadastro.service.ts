@@ -9,13 +9,21 @@ export class CadastroService {
   user: Usuario[];
   new: Novousuario[];
   constructor() {
-    this.user = [
-      {
-        nome: 'Fulano',
-        telefone : '84999999999',
-      }
-    ];
+    this.user = [];
     this.new = [];
+    this.gerarUsuários();
+  }
+
+  gerarUsuários(){
+    let nomes = ['Sicr','Beltr','Ful','Gilc','Ces','Al','Jo','Sicl','Erm','Marr'];
+    for (let i = 0;this.user.length <= 9; ++i){
+      this.user.push(
+        {
+          nome: `${nomes[i]}ano`,
+          telefone : `84999999${i}`
+        }
+      )
+    }
   }
 
   listarUsuario(): Usuario[] {

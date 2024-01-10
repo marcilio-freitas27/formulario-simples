@@ -8,6 +8,7 @@ import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.co
 import { ExibeUsuarioComponent } from './exibe-usuario/exibe-usuario.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalExcluirUsuarioComponent } from './modal-excluir-usuario/modal-excluir-usuario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent],
@@ -16,6 +17,7 @@ import { ModalExcluirUsuarioComponent } from './modal-excluir-usuario/modal-excl
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

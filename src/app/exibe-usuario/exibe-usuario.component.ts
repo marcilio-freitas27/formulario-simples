@@ -21,6 +21,7 @@ export class ExibeUsuarioComponent implements OnInit {
   faPlus = faPlus;
   excluirUsuario:number = 0;
   modal:any = 'modal';
+  value: any = '';
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder
@@ -92,14 +93,19 @@ export class ExibeUsuarioComponent implements OnInit {
 
   openModal(count: number) {
     this.excluirUsuario = count;
-    // let myModal: any = document.querySelector('body');
-    // let myInput: any = document.getElementById(this.id);
+    let myModal: any = document.querySelector('#exampleModalFade');
+    let myInput: any = document.getElementById(this.id);
 
-    // myModal.style.opacity = 0.5;
-    // myModal.style.zIndex = -1;
-    // myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
-    // myInput.style.zIndex = 1072;
+    myModal.style.opacity = 0.5;
+    myModal.style.zIndex = -1;
+    myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
+    myInput.style.zIndex = 1072;
+    myModal.style.height = '100%';
     this.modal = 'modal-open';
+  }
+
+  buscar(resultado: any){
+    this.value = resultado;
   }
 
 

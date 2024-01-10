@@ -24,9 +24,9 @@ export class ModalExcluirUsuarioComponent implements OnInit {
   closeModal() {
     // this.modal = 'modal-open';
     console.log('modal', this.excluirUsuario, this.modal)
-    // let myModal: any = document.querySelector('body');
-    // myModal.style.opacity = 1;
-    // myModal.style.backgroundColor = 'white';
+    let myModal: any = document.querySelector('#exampleModalFade');
+    myModal.style.opacity = 1;
+    myModal.style.backgroundColor = 'white';
     this.modal = 'modal';
   }
 
