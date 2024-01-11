@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../models/cadastro.service';
 import { Usuario } from '../models/usuario';
-import { faList } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Novousuario } from '../models/novousuario';
 import { Location } from '@angular/common';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
-  selector: 'app-cadastra-usuario',
-  templateUrl: './cadastra-usuario.component.html',
-  styleUrls: ['./cadastra-usuario.component.css'],
+  selector: 'app-edita-usuario',
+  templateUrl: './edita-usuario.component.html',
+  styleUrls: ['./edita-usuario.component.css']
 })
-export class CadastraUsuarioComponent implements OnInit {
+export class EditaUsuarioComponent implements OnInit {
+
   formGroup: FormGroup;
-  usuario: Usuario;
-  lista: any[];
-  duplicado: any;
-  faList = faList;
+  usuario: Novousuario;
+  count: number;
+  faPlus = faPlus
   constructor(
     private cadastroService: CadastroService,
-    private formBuilder: FormBuilder,
+    formBuilder: FormBuilder,
     private locate: Location,
-  ) {
-    this.usuario = new Usuario('', '');
-    this.lista = this.cadastroService.listarUsuario();
-    this.duplicado = this.lista.length;
-    this.formGroup = this.formBuilder.group({
+    ) {
+    this.count = 0;
+    this.usuario = new Novousuario('', '');
+    this.formGroup = formBuilder.group({
       nome: [
         this.usuario.nome,
         [
@@ -40,16 +41,22 @@ export class CadastraUsuarioComponent implements OnInit {
           Validators.maxLength(15),
           Validators.minLength(11),
           Validators.pattern('[0-9]{11}$'),
+          // Validators.pattern(/^\(\d{2}\) \d \d{4}-\d{4}$/),
         ],
       ],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
-  adicionar(nome: string, numero: string): void {
+  cancelar(){
+    this.locate.back();
+  }
+
+  atualizar(nome: string, numero: string, id: number) {
     const usuario = new Usuario(nome, numero);
-    this.cadastroService.adicionarUsuario(usuario);
+    this.cadastroService.atualizarUsuario(usuario, id);
     this.formGroup.reset();
   }
 
@@ -61,7 +68,4 @@ export class CadastraUsuarioComponent implements OnInit {
     return this.formGroup.get('fone');
   }
 
-  cancelar(){
-    this.locate.back();
-  }
 }

@@ -51,7 +51,7 @@
             <td>{{ usuario.nome }}</td>
             <td>{{ usuario.telefone }}</td>
             <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
-            <td><input class="btn btn-warning" type="button" (click)="editar(usuario.nome,usuario.telefone,i)"
+            <td><input class="btn btn-warning" type="button" routerLink="/editar"
                 value="Editar"></td>
           </ng-container>
           <ng-container *ngIf="value != ''">
@@ -62,7 +62,7 @@
     </table>
   </div>
 
-  <form [formGroup]="formGroup" [hidden]="show">
+  <!-- <form [formGroup]="formGroup" [hidden]="show">
     <h3 class="text-center m-3">Edição de usuários</h3>
     <div class="container">
       <div class="form-group m-3">
@@ -105,7 +105,7 @@
           (click)="cancelar()">
       </div>
     </div>
-  </form>
+  </form> -->
 
 </div>
 
