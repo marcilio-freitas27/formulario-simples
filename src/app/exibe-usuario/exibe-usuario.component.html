@@ -51,7 +51,7 @@
             <td>{{ usuario.nome }}</td>
             <td>{{ usuario.telefone }}</td>
             <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
-            <td><input class="btn btn-warning" type="button" routerLink="/editar"
+            <td><input class="btn btn-warning" type="button" [routerLink]="['/editar/', i]"
                 value="Editar"></td>
           </ng-container>
           <ng-container *ngIf="value != ''">

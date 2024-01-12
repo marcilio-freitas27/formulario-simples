@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Novousuario } from '../models/novousuario';
 import { Location } from '@angular/common';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edita-usuario',
@@ -21,6 +22,7 @@ export class EditaUsuarioComponent implements OnInit {
     private cadastroService: CadastroService,
     formBuilder: FormBuilder,
     private locate: Location,
+    private route: ActivatedRoute,
     ) {
     this.count = 0;
     this.usuario = new Novousuario('', '');
@@ -54,9 +56,10 @@ export class EditaUsuarioComponent implements OnInit {
     this.locate.back();
   }
 
-  atualizar(nome: string, numero: string, id: number) {
+  atualizar(nome: string, numero: string) {
+    const id = this.route.snapshot.paramMap.get("id");
     const usuario = new Usuario(nome, numero);
-    this.cadastroService.atualizarUsuario(usuario, id);
+    this.cadastroService.atualizarUsuario(usuario, Number(id));
     this.formGroup.reset();
   }
 

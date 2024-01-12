@@ -14,7 +14,7 @@ export class ExibeUsuarioComponent implements OnInit {
   formGroup: FormGroup;
   lista: Usuario[];
   usuario: Novousuario;
-  id:any = 'exampleModal'
+  id:any = 'exampleModal';
   novo: Novousuario[];
   count: number;
   show: boolean;
@@ -63,13 +63,6 @@ export class ExibeUsuarioComponent implements OnInit {
     //   nome: this.lista[0]['nome'],
     //   fone: this.lista[0]['telefone']
     // })
-  }
-
-  editar(nome: string, numero: string, index: number) {
-    const usuario = new Novousuario(nome, numero);
-    this.cadastroService.editarUsuario(usuario, index);
-    this.count = index;
-    this.show = false;
   }
 
   cancelar(){

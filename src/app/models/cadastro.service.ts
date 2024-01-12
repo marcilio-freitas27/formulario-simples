@@ -70,17 +70,20 @@ export class CadastroService {
   editarUsuario(novo: Novousuario, index: number) {
     this.new.push(novo);
     index = this.new.indexOf(novo);
+
   }
 
   atualizarUsuario(usuario: Usuario, id: number) {
     if (
-      usuario.nome != '' ||
-      usuario.telefone != '' ||
+      (usuario.nome != '' ||
+      usuario.telefone != '') &&
       !this.usuarioExiste(usuario)
     ) {
       this.user[id].nome = usuario.nome;
       this.user[id].telefone = usuario.telefone;
       this.new.splice(id, 1);
+    }else {
+      alert('Usuario já existe')
     }
   }
 }
