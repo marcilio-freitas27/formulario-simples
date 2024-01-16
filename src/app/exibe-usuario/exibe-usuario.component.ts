@@ -17,7 +17,6 @@ export class ExibeUsuarioComponent implements OnInit {
   id:any = 'exampleModal';
   novo: Novousuario[];
   count: number;
-  show: boolean;
   faPlus = faPlus;
   excluirUsuario:number = 0;
   modal:any = 'modal';
@@ -29,7 +28,6 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = [];
     this.novo = [];
     this.count = 0;
-    this.show = true;
     this.usuario = new Novousuario('', '');
     this.formGroup = formBuilder.group({
       nome: [
@@ -65,15 +63,10 @@ export class ExibeUsuarioComponent implements OnInit {
     // })
   }
 
-  cancelar(){
-    this.show = true;
-  }
-
   atualizar(nome: string, numero: string, id: number) {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario, id);
     this.formGroup.reset();
-    this.show = true;
   }
 
   get nome() {
@@ -100,6 +93,5 @@ export class ExibeUsuarioComponent implements OnInit {
   buscar(resultado: any){
     this.value = resultado;
   }
-
 
 }

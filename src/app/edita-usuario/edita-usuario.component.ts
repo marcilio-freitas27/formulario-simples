@@ -59,7 +59,7 @@ export class EditaUsuarioComponent implements OnInit {
   atualizar(nome: string, numero: string) {
     const id = this.route.snapshot.paramMap.get("id");
     const usuario = new Usuario(nome, numero);
-    this.cadastroService.atualizarUsuario(usuario, Number(id));
+    this.cadastroService.atualizarUsuario(usuario, Number(id) - 1);
     this.formGroup.reset();
   }
 
