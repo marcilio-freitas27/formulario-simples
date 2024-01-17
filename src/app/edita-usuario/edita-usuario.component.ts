@@ -4,7 +4,7 @@ import { Usuario } from '../models/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Novousuario } from '../models/novousuario';
 import { Location } from '@angular/common';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class EditaUsuarioComponent implements OnInit {
   formGroup: FormGroup;
   usuario: Novousuario;
   count: number;
-  faPlus = faPlus
+  faList = faList
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder,

@@ -47,7 +47,12 @@
       </thead>
       <tbody *ngFor="let usuario of lista; index as i">
         <tr>
-          <ng-container *ngIf="value.toLowerCase() == usuario.nome.toLowerCase() || value == ''">
+          <ng-container *ngIf="
+            value.toLowerCase() == usuario.nome.toLowerCase() ||
+            value == '' ||
+            value.toLowerCase() == usuario.nome.toLowerCase().charAt(0)
+            "
+          >
             <td>{{ usuario.nome }}</td>
             <td>{{ usuario.telefone }}</td>
             <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
