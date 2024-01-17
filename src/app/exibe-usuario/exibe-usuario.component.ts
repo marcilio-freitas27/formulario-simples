@@ -4,6 +4,7 @@ import { CadastroService } from '../models/cadastro.service';
 import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from '../service/modal.service';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -11,6 +12,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./exibe-usuario.component.css'],
 })
 export class ExibeUsuarioComponent implements OnInit {
+
   formGroup: FormGroup;
   lista: Usuario[];
   usuario: Novousuario;
@@ -19,11 +21,11 @@ export class ExibeUsuarioComponent implements OnInit {
   count: number;
   faPlus = faPlus;
   excluirUsuario:number = 0;
-  modal:any = 'modal';
   value: any = '';
   constructor(
     private cadastroService: CadastroService,
-    formBuilder: FormBuilder
+    formBuilder: FormBuilder,
+    private modalService: ModalService,
   ) {
     this.lista = [];
     this.novo = [];
@@ -55,6 +57,8 @@ export class ExibeUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
+    this.modalService.getModal(this.id);
+
     // retorna dados do usuario quando precisamos editar um campo
 
     // this.formGroup.patchValue({
@@ -87,7 +91,8 @@ export class ExibeUsuarioComponent implements OnInit {
     myModal.style.backgroundColor = 'rgba(0,0,0,0.2)';
     myInput.style.zIndex = 1072;
     myModal.style.height = '100%';
-    this.modal = 'modal-open';
+    myInput.style.display = 'block';
+    this.modalService.setModal(this.id, 'block');
   }
 
   buscar(resultado: any){
