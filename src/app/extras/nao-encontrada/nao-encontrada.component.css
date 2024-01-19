@@ -5,7 +5,13 @@
 
 .container{
   display: grid;
-  grid-template-columns: repeat(8,1fr);
+  grid-template-columns: repeat(2,1fr);
+}
+
+.box{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  margin: 150px 0px 0px 200px;
 }
 
 .quatro{
@@ -50,4 +56,30 @@
   border-radius: 50%;
   position: relative;
   top: 50px;
+}
+
+
+h1
+{
+  text-align: center;
+}
+
+
+@media (max-width: 1300px){
+  .container{
+    display: block;
+  }
+  .box{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    margin: 50px;
+  }
+
+  .quatro{
+    font-size: 230px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+    position: relative;
+    bottom: 105px;
+  }
 }
