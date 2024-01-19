@@ -10,9 +10,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalExcluirUsuarioComponent } from './modal-excluir-usuario/modal-excluir-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
+import { NaoEncontradaComponent } from './extras/nao-encontrada/nao-encontrada.component';
 
 @NgModule({
-  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent],
+  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
