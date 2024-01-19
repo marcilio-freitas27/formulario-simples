@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CadastroService } from '../models/cadastro.service';
+import { CadastroService } from '../service/cadastro.service';
 import { ModalService } from '../service/modal.service';
 
 @Component({

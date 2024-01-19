@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CadastroService } from '../models/cadastro.service';
+import { CadastroService } from '../service/cadastro.service';
 import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';

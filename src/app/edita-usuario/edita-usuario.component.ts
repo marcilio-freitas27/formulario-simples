@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CadastroService } from '../models/cadastro.service';
+import { CadastroService } from '../service/cadastro.service';
 import { Usuario } from '../models/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Novousuario } from '../models/novousuario';

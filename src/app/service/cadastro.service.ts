@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Novousuario } from './novousuario';
-import { Usuario } from './usuario';
+import { Novousuario } from '../models/novousuario';
+import { Usuario } from '../models/usuario';
+
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,7 @@ export class CadastroService {
   }
 
   estaVazio(usuario: Usuario): boolean {
-    let dados = Object.values(usuario);
+    let dados: any = Object.values(usuario);
     for (let i = 0; i < dados.length; i++) {
       if (dados[i][i] == ' ') {
         return true;
