@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nao-encontrada',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaoEncontradaComponent implements OnInit {
 
+  faList = faList;
   constructor() { }
 
   ngOnInit(): void {
@@ -14,17 +16,11 @@ export class NaoEncontradaComponent implements OnInit {
 
 
   alterarOlhos(){
-    let olho1: any = document.querySelector('.iris-esquerda');
-    olho1.style.left = '100px';
-
     let olhos: any = document.querySelector('.iris-direita');
     olhos.style.left = '100px';
   }
 
   alterarolhosSaida(){
-    let olho1: any = document.querySelector('.iris-esquerda');
-    olho1.style.left = '0';
-
     let olhos: any = document.querySelector('.iris-direita');
     olhos.style.left = '0';
   }

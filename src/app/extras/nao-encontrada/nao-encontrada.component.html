@@ -1,35 +1,24 @@
-
-
-<div class="container" (mouseover)="alterarOlhos()" (mouseleave)="alterarolhosSaida()">
-  <div class="box">
-    <div class="quatro">
-      Err
-   </div>
-   <div class="olho-direito">
-    <div class="iris-esquerda">
-
-    </div>
-    </div>
-    <div class="quatro">
-      r
-   </div>
-   <div>
-
-   </div>
+<nav class="nav navbar navbar-dark bg-dark">
+  <div class="navbar-brend">
+    <li class="nav-item">
+      <a class="nav-link active text-white" routerLink="/">
+        <fa-icon [icon]="faList"></fa-icon>
+        Lista de usuários
+      </a>
+    </li>
   </div>
-  <div  class="box">
-    <div class="quatro">
-      4
-    </div>
-    <div class="olho-esquerdo">
-      <div class="iris-direita">
+</nav>
 
-      </div>
-    </div>
-    <div class="quatro">
-      4
-    </div>
-  </div>
+<div (mouseover)="alterarOlhos()" (mouseleave)="alterarolhosSaida()">
+  <p style="font-size: 15em;" class="box quatro">
+    4
+    <span class="olho-direito">
+      <span class="iris-direita">
+        <span class="centro-direito"></span>
+      </span>
+    </span>
+    4
+  </p>
 </div>
 
 <h1>Página não encontrada</h1>
