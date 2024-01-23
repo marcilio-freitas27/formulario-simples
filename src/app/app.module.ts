@@ -11,9 +11,10 @@ import { ModalExcluirUsuarioComponent } from './modal-excluir-usuario/modal-excl
 import { FormsModule } from '@angular/forms';
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { NaoEncontradaComponent } from './extras/nao-encontrada/nao-encontrada.component';
+import { LoginComponent } from './extras/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent],
+  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

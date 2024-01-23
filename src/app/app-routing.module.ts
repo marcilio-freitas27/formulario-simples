@@ -4,11 +4,19 @@ import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.co
 import { ExibeUsuarioComponent } from './exibe-usuario/exibe-usuario.component';
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { NaoEncontradaComponent } from './extras/nao-encontrada/nao-encontrada.component';
+import { AuthGuard } from './guard/auth.guard';
+import { LoginComponent } from './extras/login/login.component';
 
 const routes: Routes = [
-  { path: "", component: ExibeUsuarioComponent },
-  { path: "cadastrar", component: CadastraUsuarioComponent },
-  { path: "editar/:id", component: EditaUsuarioComponent },
+  {
+    path :"", canActivate: [AuthGuard],
+    children: [
+      { path: "", component: ExibeUsuarioComponent },
+      { path: "cadastrar", component: CadastraUsuarioComponent },
+      { path: "editar/:id", component: EditaUsuarioComponent },
+  ]
+  },
+  { path: "login", component: LoginComponent },
   { path: "**", component: NaoEncontradaComponent }
 ];
 
