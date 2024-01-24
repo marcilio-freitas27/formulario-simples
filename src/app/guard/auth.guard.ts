@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  usuario: string;
+  usuario: any;
   constructor(private router: Router){
-    this.usuario = 'Marcilio';
+    this.usuario = localStorage.getItem('formularioSimplesAutenticacao');
   }
   canActivate(
     route: ActivatedRouteSnapshot,

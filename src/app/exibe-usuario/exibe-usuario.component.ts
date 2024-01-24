@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../service/cadastro.service';
@@ -16,6 +17,7 @@ export class ExibeUsuarioComponent implements OnInit {
   formGroup: FormGroup;
   lista: Usuario[];
   usuario: Novousuario;
+  usuarioLogado: any;
   id:any = 'exampleModal';
   novo: Novousuario[];
   count: number;
@@ -26,6 +28,7 @@ export class ExibeUsuarioComponent implements OnInit {
     private cadastroService: CadastroService,
     formBuilder: FormBuilder,
     private modalService: ModalService,
+    private router: Router,
   ) {
     this.lista = [];
     this.novo = [];
@@ -52,6 +55,7 @@ export class ExibeUsuarioComponent implements OnInit {
         ],
       ],
     });
+    this.usuarioLogado = localStorage.getItem('formularioSimplesAutenticacao');
   }
 
   ngOnInit(): void {
@@ -97,6 +101,11 @@ export class ExibeUsuarioComponent implements OnInit {
 
   buscar(resultado: any){
     this.value = resultado;
+  }
+
+  logout(){
+    localStorage.setItem('formularioSimplesAutenticacao', '');
+    this.router. navigate(['login']);
   }
 
 }
