@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(user: any, pass: any){
-    if(user === 'Marcilio'){
-      console.log(user, pass)
-      localStorage.setItem('formularioSimplesAutenticacao', user);
+    if(user === 'Marcilio' && pass !== ""){
+      let estaLogado = {nome: user, senha: pass};
+      localStorage.setItem('formularioSimplesAutenticacao', JSON.stringify(estaLogado));
       this.router.navigate(['']);
     }
   }
