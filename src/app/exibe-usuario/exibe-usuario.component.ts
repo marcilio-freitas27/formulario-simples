@@ -62,9 +62,6 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
-    let lista = this.usuarioLogado.split(",")
-    lista = lista[0].split(":")
-    this.usuarioLogado = lista[1].split("\\")
 
     // retorna dados do usuario quando precisamos editar um campo
 
@@ -108,6 +105,7 @@ export class ExibeUsuarioComponent implements OnInit {
 
   logout(){
     localStorage.setItem('formularioSimplesAutenticacao', '');
+    localStorage.removeItem('formularioSimplesAutenticacao');
     this.router. navigate(['login']);
   }
 

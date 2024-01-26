@@ -14,8 +14,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(
-      JSON.parse(this.usuario).nome === 'Marcilio' &&
-      JSON.parse(this.usuario).senha !== ""
+      this.usuario == "Marcilio"
     ){
       return true
     }

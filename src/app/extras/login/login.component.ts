@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit {
 
   login(user: any, pass: any){
     if(user === 'Marcilio' && pass !== ""){
-      let estaLogado = {nome: user, senha: pass};
-      localStorage.setItem('formularioSimplesAutenticacao', JSON.stringify(estaLogado));
+      localStorage.setItem('formularioSimplesAutenticacao', user);
       this.router.navigate(['']);
     }
   }
+
 
 }
