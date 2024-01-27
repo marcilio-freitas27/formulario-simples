@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { NaoEncontradaComponent } from './extras/nao-encontrada/nao-encontrada.component';
 import { LoginComponent } from './extras/login/login.component';
 
+import { FakeApiService } from './service/fake-api.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 @NgModule({
   declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent],
   imports: [
@@ -20,7 +24,9 @@ import { LoginComponent } from './extras/login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    InMemoryWebApiModule.forRoot(FakeApiService),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

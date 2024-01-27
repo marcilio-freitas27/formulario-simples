@@ -6,6 +6,7 @@ import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../service/modal.service';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -17,6 +18,7 @@ export class ExibeUsuarioComponent implements OnInit {
   formGroup: FormGroup;
   lista: Usuario[];
   usuario: Novousuario;
+  users: any[];
   usuarioLogado: any;
   id:any = 'exampleModal';
   novo: Novousuario[];
@@ -29,9 +31,11 @@ export class ExibeUsuarioComponent implements OnInit {
     formBuilder: FormBuilder,
     private modalService: ModalService,
     private router: Router,
+    private usuarioService: UsuarioService,
   ) {
     this.lista = [];
     this.novo = [];
+    this.users = [];
     this.count = 0;
     this.usuario = new Novousuario('', '');
     this.formGroup = formBuilder.group({
@@ -62,6 +66,7 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
+    this.buscarUsuarios();
 
     // retorna dados do usuario quando precisamos editar um campo
 
@@ -75,6 +80,17 @@ export class ExibeUsuarioComponent implements OnInit {
     const usuario = new Usuario(nome, numero);
     this.cadastroService.atualizarUsuario(usuario, id);
     this.formGroup.reset();
+  }
+
+  buscarUsuarios(){
+    this.usuarioService.getUserList().subscribe({
+      next: dados => {
+        this.users = dados
+      },
+      error: dados => {
+        console.log(dados)
+      }
+    })
   }
 
   get nome() {
