@@ -66,7 +66,6 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
-    this.buscarUsuarios();
 
     // retorna dados do usuario quando precisamos editar um campo
 
@@ -89,6 +88,40 @@ export class ExibeUsuarioComponent implements OnInit {
       },
       error: dados => {
         console.log(dados)
+      }
+    })
+  }
+
+  buscarUsuarioPorCodigo(codigo: number){
+    this.usuarioService.getUserListById(codigo).subscribe({
+      next: dados => {
+        console.log('usuario', dados)
+      }
+    })
+  }
+
+  excluirUsuarioPorCodigo(){
+    this.usuarioService.deleteUserById(2).subscribe(
+      {
+        next: () =>{
+          console.log('O Usuário foi excluído.');
+        }
+      }
+    );
+  }
+
+  alterarusuario(){
+    this.usuarioService.updateUser(1, {id: 1, nome: 'Marcilio', telefone: '84991383819'}).subscribe({
+      next: () =>{
+        console.log('Alterado com sucesso')
+      }
+    })
+  }
+
+  salvarUsuario(){
+    this.usuarioService.insertUser({nome: 'Marcilio', telefone: '84991383819'}).subscribe({
+      next: dados =>{
+        console.log('Usuario salvo');
       }
     })
   }

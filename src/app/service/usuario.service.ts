@@ -13,4 +13,24 @@ export class UsuarioService {
     return this.http.get('api/users');
   }
 
+  getUserListById(id: number){
+    return this.http.get('api/users/' + id);
+  }
+
+  getUserListByName(name: string){
+    return this.http.get('api/users?nome=' + name)
+  }
+
+  insertUser(novo: any){
+    return this.http.post('api/users', novo);
+  }
+
+  deleteUserById(id: number){
+    return this.http.delete('api/users/' + id );
+  }
+
+  updateUser(id: number, novo: any){
+    return this.http.put('api/users/' + id, novo);
+  }
+
 }
