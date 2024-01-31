@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(user: any, pass: any){
-    if(user === 'Marcilio' && pass !== ""){
+    if(user === 'usuario' && pass !== ""){
       localStorage.setItem('formularioSimplesAutenticacao', user);
       this.router.navigate(['']);
     }
