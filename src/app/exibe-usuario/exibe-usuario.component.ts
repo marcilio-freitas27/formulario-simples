@@ -7,6 +7,8 @@ import { Usuario } from '../models/usuario';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../service/modal.service';
 import { UsuarioService } from '../service/usuario.service';
+import { mkConfig, generateCsv, download } from "export-to-csv";
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -120,7 +122,7 @@ export class ExibeUsuarioComponent implements OnInit {
 
   salvarUsuario(){
     this.usuarioService.insertUser({nome: 'Marcilio', telefone: '84991383819'}).subscribe({
-      next: dados =>{
+      next: () =>{
         console.log('Usuario salvo');
       }
     })
@@ -155,7 +157,47 @@ export class ExibeUsuarioComponent implements OnInit {
   logout(){
     localStorage.setItem('formularioSimplesAutenticacao', '');
     localStorage.removeItem('formularioSimplesAutenticacao');
-    this.router. navigate(['login']);
+    this.router.navigate(['login']);
+  }
+
+  gerarCsv(){
+    const csvConfig = mkConfig(
+      {
+        useKeysAsHeaders: true,
+        filename: 'tabela-usuarios'
+      }
+    );
+    let mockData: any[] = [];
+
+    this.lista.forEach(value =>{
+      mockData.push({
+        nome: value.nome,
+        telefone: value.telefone
+      })
+    })
+
+    const csv = generateCsv(csvConfig)(mockData);
+
+    download(csvConfig)(csv);
+  }
+
+  gerarPdf(){
+    const doc = new jsPDF();
+
+    let mockData: any[] = [];
+
+    doc.text("Nome | Telefone", 10, 10);
+    this.lista.forEach((value, index) =>{
+      mockData.push({
+        nome: value.nome,
+        telefone: value.telefone
+      })
+      doc.text(value.nome, 10, 20  + (index * 10));
+      doc.text(" | ", 30, 20  + (index * 10));
+      doc.text(value.telefone, 40, 20 + (index * 10));
+    })
+
+    doc.save("tabela-usuarios.pdf");
   }
 
 }

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate": "ng generate component"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,12 @@
     "@angular/router": "~13.0.0",
     "@fortawesome/angular-fontawesome": "^0.10.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "angular-in-memory-web-api": "^0.13.0",
+    "chatgpt": "^5.2.5",
+    "chatgpt-api": "^0.0.6",
+    "export-to-csv": "^1.2.2",
+    "jspdf": "^2.5.1",
+    "openai": "^4.26.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
