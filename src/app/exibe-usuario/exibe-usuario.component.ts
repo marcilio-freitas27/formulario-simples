@@ -8,7 +8,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../service/modal.service';
 import { UsuarioService } from '../service/usuario.service';
 import { mkConfig, generateCsv, download } from "export-to-csv";
-import { jsPDF } from "jspdf";
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -184,17 +185,27 @@ export class ExibeUsuarioComponent implements OnInit {
   gerarPdf(){
     const doc = new jsPDF();
 
-    let mockData: any[] = [];
+    // let mockData: any[] = [];
 
-    doc.text("Nome | Telefone", 10, 10);
-    this.lista.forEach((value, index) =>{
-      mockData.push({
-        nome: value.nome,
-        telefone: value.telefone
+    // doc.text("Nome | Telefone", 10, 10);
+    // this.lista.forEach((value, index) =>{
+    //   mockData.push({
+    //     nome: value.nome,
+    //     telefone: value.telefone
+    //   })
+
+    //   doc.text(value.nome, 10, 20  + (index * 10));
+    //   doc.text(" | ", 30, 20  + (index * 10));
+    //   doc.text(value.telefone, 40, 20 + (index * 10));
+    // })
+
+    autoTable(doc, {head: [['Nome', 'Telefone']],})
+    this.lista.forEach(value => {
+      autoTable(doc, {
+        body: [
+          [value.nome, value.telefone],
+        ],
       })
-      doc.text(value.nome, 10, 20  + (index * 10));
-      doc.text(" | ", 30, 20  + (index * 10));
-      doc.text(value.telefone, 40, 20 + (index * 10));
     })
 
     doc.save("tabela-usuarios.pdf");
