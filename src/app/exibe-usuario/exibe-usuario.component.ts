@@ -8,7 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../service/modal.service';
 import { UsuarioService } from '../service/usuario.service';
 import { GeradorDocumentosUtil } from '../util/gerador-documentos.util';
-
+import DataTable from 'datatables.net-dt';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -69,7 +69,7 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
-
+    let table = new DataTable('#myTable');
     // retorna dados do usuario quando precisamos editar um campo
 
     // this.formGroup.patchValue({

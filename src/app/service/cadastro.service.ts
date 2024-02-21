@@ -16,7 +16,7 @@ export class CadastroService {
   }
 
   gerarUsuários(){
-    let nomes = ['Sicr','Beltr','Ful','Gilc','Ces','Al','Jo','Sicl','Erm','Marr'];
+    let nomes = ['Sicr','Beltr','Ful','Gilc','Ces','Al','Jo','Sicl','Erm','Marr',];
     for (let i = 0;this.user.length <= 9; ++i){
       this.user.push(
         {
