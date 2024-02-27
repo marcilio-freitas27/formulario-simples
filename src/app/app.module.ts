@@ -16,9 +16,10 @@ import { LoginComponent } from './extras/login/login.component';
 
 import { FakeApiService } from './service/fake-api.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { PhoneNumberPipe } from './pipe/phone-number.pipe';
 
 @NgModule({
-  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent],
+  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent, PhoneNumberPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

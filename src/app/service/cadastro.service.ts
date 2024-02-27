@@ -21,7 +21,7 @@ export class CadastroService {
       this.user.push(
         {
           nome: `${nomes[i]}ano`,
-          telefone : `84999999${i}`
+          telefone : `8499138381${i}`
         }
       )
     }
