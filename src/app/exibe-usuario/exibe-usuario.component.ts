@@ -156,7 +156,6 @@ export class ExibeUsuarioComponent implements OnInit {
   }
 
   logout(){
-    localStorage.setItem('formularioSimplesAutenticacao', '');
     localStorage.removeItem('formularioSimplesAutenticacao');
     this.router.navigate(['login']);
   }
