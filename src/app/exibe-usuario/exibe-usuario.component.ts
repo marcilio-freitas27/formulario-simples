@@ -28,6 +28,7 @@ export class ExibeUsuarioComponent implements OnInit {
   faPlus = faPlus;
   excluirUsuario:number = 0;
   value: any = '';
+  table: any;
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder,
@@ -69,13 +70,24 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
-    let table = new DataTable('#myTable');
+
     // retorna dados do usuario quando precisamos editar um campo
 
     // this.formGroup.patchValue({
     //   nome: this.lista[0]['nome'],
     //   fone: this.lista[0]['telefone']
     // })
+  }
+
+  ngAfterViewInit() {
+    let minhaLista:any[] = this.lista;
+    this.table = new DataTable('#myTable',{
+        data: minhaLista,
+        columns: [
+          { title: 'Nome', data: 'nome' },
+          { title: 'Telefone', data: 'telefone' },
+        ]
+      });
   }
 
   atualizar(nome: string, numero: string, id: number) {
