@@ -29,6 +29,7 @@ export class ExibeUsuarioComponent implements OnInit {
   excluirUsuario:number = 0;
   value: any = '';
   table: any;
+  tabela: any;
   constructor(
     private cadastroService: CadastroService,
     formBuilder: FormBuilder,
@@ -80,14 +81,15 @@ export class ExibeUsuarioComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    let minhaLista:any[] = this.lista;
-    this.table = new DataTable('#myTable',{
-        data: minhaLista,
-        columns: [
-          { title: 'Nome', data: 'nome' },
-          { title: 'Telefone', data: 'telefone' },
-        ]
-      });
+    this.tabela = new DataTable('#myTable');
+    // let minhaLista:any[] = this.lista;
+    // this.table = new DataTable('#myTable',{
+    //     data: minhaLista,
+    //     columns: [
+    //       { title: 'Nome', data: 'nome' },
+    //       { title: 'Telefone', data: 'telefone' },
+    //     ]
+    //   });
   }
 
   atualizar(nome: string, numero: string, id: number) {
