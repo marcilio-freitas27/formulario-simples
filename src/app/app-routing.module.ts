@@ -6,12 +6,14 @@ import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { NaoEncontradaComponent } from './extras/nao-encontrada/nao-encontrada.component';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginComponent } from './extras/login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path :"", canActivate: [AuthGuard],
     children: [
-      { path: "", component: ExibeUsuarioComponent },
+      { path : "", component: DashboardComponent},
+      { path: "usuario", component: ExibeUsuarioComponent },
       { path: "cadastrar", component: CadastraUsuarioComponent },
       { path: "editar/:id", component: EditaUsuarioComponent },
   ]
