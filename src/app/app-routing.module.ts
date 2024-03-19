@@ -12,8 +12,8 @@ const routes: Routes = [
   {
     path :"", canActivate: [AuthGuard],
     children: [
-      { path : "", component: DashboardComponent},
-      { path: "usuario", component: ExibeUsuarioComponent },
+      { path : "", component: ExibeUsuarioComponent},
+      { path: "dashboard", component: DashboardComponent },
       { path: "cadastrar", component: CadastraUsuarioComponent },
       { path: "editar/:id", component: EditaUsuarioComponent },
   ]

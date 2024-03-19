@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables} from 'chart.js';
 import { CadastroService } from '../service/cadastro.service';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 
 Chart.register(...registerables);
 
@@ -11,7 +12,7 @@ Chart.register(...registerables);
 })
 export class DashboardComponent implements OnInit {
 
-
+  faList = faList
   constructor(private cadastroService: CadastroService) {
 
    }
