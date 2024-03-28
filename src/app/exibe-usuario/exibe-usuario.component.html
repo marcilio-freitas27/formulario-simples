@@ -48,7 +48,7 @@
       </thead>
       <tbody>
         <tr>
-          <td colspan="4" style="text-align: center;">
+          <td colspan="3" style="text-align: center;">
             Sem usuários
           </td>
         </tr>
@@ -60,8 +60,7 @@
         <tr>
           <th>Nome</th>
           <th>Telefone</th>
-          <th>Exclusão</th>
-          <th>Edição</th>
+          <th>Opções</th>
         </tr>
       </thead>
       <tbody *ngFor="let usuario of lista; index as i">
@@ -72,11 +71,13 @@
             value.toLowerCase() == usuario.nome.toLowerCase().charAt(0)
             "
           >
-            <td>{{ usuario.nome }}</td>
-            <td>{{ usuario.telefone | phoneNumber}}</td>
-            <td><input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir"></td>
-            <td><input class="btn btn-warning" type="button" [routerLink]="['/editar/', i + 1]"
-                value="Editar"></td>
+            <td data-label="Nome">{{ usuario.nome }}</td>
+            <td data-label="Telefone">{{ usuario.telefone | phoneNumber}}</td>
+            <td data-label="Opções" style="display:flex; justify-content: space-around;">
+              <input type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button" (click)="openModal(i)" value="Excluir">
+              <input class="btn btn-warning" type="button" [routerLink]="['/editar/', i + 1]" value="Editar">
+            </td>
+
           </ng-container>
           <ng-container *ngIf="value != ''">
 

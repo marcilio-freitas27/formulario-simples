@@ -1,0 +1,48 @@
+ /* Estilo base da tabela */
+ table {
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+
+.table>:not(:first-child) {
+  border-top: none !important;
+}
+
+/* Estilo específico para tela pequena */
+@media only screen and (max-width: 600px) {
+  th, td {
+    padding: 4px;
+    width: 75vw;
+  }
+  table {
+    border: 0;
+    width: 80% !important;
+  }
+  table thead {
+    display:none;
+  }
+  table tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 2px solid #dddddd;
+  }
+  table td {
+    display: block;
+    text-align: right;
+    border-bottom: none;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  table tbody{
+    width: 100%;
+  }
+}

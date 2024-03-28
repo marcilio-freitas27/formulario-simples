@@ -19,6 +19,10 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { PhoneNumberPipe } from './pipe/phone-number.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+// import { TableModule } from 'primeng/table';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { AccordionModule } from 'primeng/accordion';     //accordion and accordion tab
+
 @NgModule({
   declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent, PhoneNumberPipe, DashboardComponent],
   imports: [
@@ -28,9 +32,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FontAwesomeModule,
     FormsModule,
     InMemoryWebApiModule.forRoot(FakeApiService),
-    HttpClientModule
+    HttpClientModule,
+    // TableModule,
+    // BrowserAnimationsModule,
+    // AccordionModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent,],
 })
 export class AppModule {}
