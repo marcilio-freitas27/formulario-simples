@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CadastroService } from '../service/cadastro.service';
 import { ModalService } from '../service/modal.service';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-modal-excluir-usuario',
@@ -11,6 +12,7 @@ export class ModalExcluirUsuarioComponent implements OnInit {
 
   @Input() id: any;
   @Input() excluirUsuario!:number;
+  faWarning = faWarning;
   constructor(
     private cadastroService: CadastroService,
     private modalService: ModalService

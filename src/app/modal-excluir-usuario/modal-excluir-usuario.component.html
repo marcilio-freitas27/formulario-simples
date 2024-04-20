@@ -3,15 +3,18 @@
 <div id="modal" class="container-fluid" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <fa-icon [icon]="faWarning" class="text-dark"></fa-icon>
+          Atenção
+        </h5>
       </div>
       <div class="modal-body">
-        <p>Deseja realmente excluir o usuário?</p>
+        Deseja realmente excluir o usuário?
       </div>
       <div class="modal-footer">
-        <button type="button" class="rounded-pill btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Não</button>
-        <button type="button" class="rounded-pill btn btn-primary" (click)="excluir()">Sim</button>
+        <button type="button" class="rounded-pill btn btn-success" data-dismiss="modal" (click)="closeModal()">Não</button>
+        <button type="button" class="rounded-pill btn btn-danger" (click)="excluir()">Sim</button>
       </div>
     </div>
   </div>
