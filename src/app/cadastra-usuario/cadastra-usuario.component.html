@@ -47,11 +47,11 @@
     </div>
 
     <div class="m-3">
-      <input style="margin-right: 5px;" routerLink="/" type="submit" class="btn btn-dark" [disabled]="!formGroup.valid" value="Cadastrar" (click)="adicionar(
+      <input style="margin-right: 5px;" routerLink="/" type="submit" class=" rounded-pill btn btn-dark" [disabled]="!formGroup.valid" value="Cadastrar" (click)="adicionar(
         nome!.value,
         fone!.value
       )">
-      <input type="button" class="btn btn-danger" value="Cancelar"
+      <input type="button" class="rounded-pill btn btn-danger" value="Cancelar"
       (click)="cancelar()">
       <!-- <small class="alerta" *ngIf="">
         Usuário já existe.

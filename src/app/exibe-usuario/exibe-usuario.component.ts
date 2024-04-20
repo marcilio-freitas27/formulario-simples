@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../service/cadastro.service';
 import { Novousuario } from '../models/novousuario';
 import { Usuario } from '../models/usuario';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBarChart, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '../service/modal.service';
 import { UsuarioService } from '../service/usuario.service';
 import { GeradorDocumentosUtil } from '../util/gerador-documentos.util';
@@ -25,6 +25,7 @@ export class ExibeUsuarioComponent implements OnInit {
   id:any = 'exampleModal';
   novo: Novousuario[];
   count: number;
+  faDashboard = faBarChart;
   faPlus = faPlus;
   excluirUsuario:number = 0;
   value: any = '';
