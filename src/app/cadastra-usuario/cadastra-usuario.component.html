@@ -9,53 +9,61 @@
   </div>
 </nav>
 
-<form [formGroup]="formGroup" role="form">
-  <h3 class="text-center m-3">Cadastro de usuários</h3>
-  <div class="container">
-    <div class="form-group m-3">
-      <label for="nome">Nome:*</label>
-      <input type="text" id="nome" name="nome" class="form-control" formControlName="nome"
-        placeholder="ex.: Nome Sobrenome..." minlength="3" maxlength="30">
-      <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert-background">
-        <small *ngIf="nome!.errors?.['required']">
-          O campo nome é obrigatório
-        </small>
-        <small *ngIf="nome!.errors?.['minlength']">
-          Quantidade mínima de 3 letras.
-        </small>
-        <small class="alerta" *ngIf="nome!.errors?.['pattern']">
-          Insira apenas letras.
-        </small>
-      </div>
-    </div>
-
-    <div class="alerta" class="form-group m-3">
-      <label for="fone">Telefone:*</label>
-      <input type="text" id="fone" name="fone" class="form-control" id="fone" formControlName="fone" mask="84988887777"
-        placeholder="ex.: 84988887777" minlength="11" maxlength="16">
-      <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert-background">
-        <small class="alerta" *ngIf="fone!.errors?.['required']">
-          O campo telefone é obrigatório.
-        </small>
-        <small class="alerta" *ngIf="fone!.errors?.['minlength']">
-          Quantidade mínimo de 10 números.
-        </small>
-        <small class="alerta" *ngIf="fone!.errors?.['pattern']">
-          Insira apenas números.
-        </small>
-      </div>
-    </div>
-
-    <div class="m-3">
-      <input style="margin-right: 5px;" routerLink="/" type="submit" class=" rounded-pill btn btn-dark" [disabled]="!formGroup.valid" value="Cadastrar" (click)="adicionar(
-        nome!.value,
-        fone!.value
-      )">
-      <input type="button" class="rounded-pill btn btn-danger" value="Cancelar"
-      (click)="cancelar()">
-      <!-- <small class="alerta" *ngIf="">
-        Usuário já existe.
-      </small> -->
-    </div>
+<div class="card container mt-5">
+  <div class="card-header text-white bg-dark">
+    <strong>Cadastro de usuários</strong>
   </div>
-</form>
+  <div class="card-body">
+    <form [formGroup]="formGroup" role="form">
+      <h3 class="text-center m-3"></h3>
+      <div class="container">
+        <div class="form-group m-3">
+          <label for="nome">Nome:*</label>
+          <input type="text" id="nome" name="nome" class="form-control" formControlName="nome"
+            placeholder="ex.: Nome Sobrenome..." minlength="3" maxlength="30">
+          <div *ngIf="nome!.invalid && (nome!.dirty || nome!.touched)" class="alert-background">
+            <small *ngIf="nome!.errors?.['required']">
+              O campo nome é obrigatório
+            </small>
+            <small *ngIf="nome!.errors?.['minlength']">
+              Quantidade mínima de 3 letras.
+            </small>
+            <small class="alerta" *ngIf="nome!.errors?.['pattern']">
+              Insira apenas letras.
+            </small>
+          </div>
+        </div>
+
+        <div class="alerta" class="form-group m-3">
+          <label for="fone">Telefone:*</label>
+          <input type="text" id="fone" name="fone" class="form-control" id="fone" formControlName="fone" mask="84988887777"
+            placeholder="ex.: 84988887777" minlength="11" maxlength="16">
+          <div *ngIf="fone!.invalid && (fone!.dirty || fone!.touched)" class="alert-background">
+            <small class="alerta" *ngIf="fone!.errors?.['required']">
+              O campo telefone é obrigatório.
+            </small>
+            <small class="alerta" *ngIf="fone!.errors?.['minlength']">
+              Quantidade mínimo de 10 números.
+            </small>
+            <small class="alerta" *ngIf="fone!.errors?.['pattern']">
+              Insira apenas números.
+            </small>
+          </div>
+        </div>
+
+        <div class="m-3">
+          <input style="margin-right: 5px;" routerLink="/" type="submit" class=" rounded-pill btn btn-dark" [disabled]="!formGroup.valid" value="Cadastrar" (click)="adicionar(
+            nome!.value,
+            fone!.value
+          )">
+          <input type="button" class="rounded-pill btn btn-danger" value="Cancelar"
+          (click)="cancelar()">
+          <!-- <small class="alerta" *ngIf="">
+            Usuário já existe.
+          </small> -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
