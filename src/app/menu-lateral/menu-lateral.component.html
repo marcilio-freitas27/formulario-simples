@@ -1,0 +1,36 @@
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Menu
+</a>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="navbar-brend">
+      <li class="nav-item">
+        <a class="nav-link active text-dark" routerLink="/cadastrar">
+          <!-- <fa-icon [icon]="faPlus"></fa-icon> -->
+          Cadastrar usuário
+        </a>
+      </li>
+    </div>
+    <div class="navbar-brend">
+      <li class="nav-item">
+        <a class="nav-link active text-dark" routerLink="/dashboard">
+          <!-- <fa-icon [icon]="faDashboard"></fa-icon> -->
+          Dashboard
+        </a>
+      </li>
+    </div>
+    <div class="navbar-brend">
+      <li class="nav-item">
+        <a class="nav-link active text-dark" routerLink="">
+          <!-- <fa-icon [icon]="faDashboard"></fa-icon> -->
+          Usuários
+        </a>
+      </li>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,7 @@
 <div id="exampleModalFade">
-  <nav class="nav navbar navbar-dark bg-dark">
-    <div class="navbar-brend">
-      <li class="nav-item">
-        <a class="nav-link active text-white" routerLink="/cadastrar">
-          <fa-icon [icon]="faPlus"></fa-icon>
-          Cadastrar usuário
-        </a>
-      </li>
-    </div>
-    <div class="navbar-brend">
-      <li class="nav-item">
-        <a class="nav-link active text-white" routerLink="/dashboard">
-          <fa-icon [icon]="faDashboard"></fa-icon>
-          Ir para o Dashboard
-        </a>
-      </li>
-    </div>
 
+  <nav class="nav navbar navbar-dark bg-dark">
+    <app-menu-lateral></app-menu-lateral>
     <div>
       <form class="d-flex m-2" role="search">
         <input #valor class="rounded-pill form-control me-2" type="text" placeholder="Ex.: Fulano" aria-label="Search">

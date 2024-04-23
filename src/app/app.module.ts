@@ -18,13 +18,14 @@ import { FakeApiService } from './service/fake-api.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { PhoneNumberPipe } from './pipe/phone-number.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 
 // import { TableModule } from 'primeng/table';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AccordionModule } from 'primeng/accordion';     //accordion and accordion tab
 
 @NgModule({
-  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent, PhoneNumberPipe, DashboardComponent],
+  declarations: [AppComponent, CadastraUsuarioComponent, ExibeUsuarioComponent, ModalExcluirUsuarioComponent, EditaUsuarioComponent, NaoEncontradaComponent, LoginComponent, PhoneNumberPipe, DashboardComponent, MenuLateralComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
