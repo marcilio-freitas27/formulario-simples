@@ -1,10 +1,12 @@
 
-<div class="form-group m-5 p-5">
-  <h1>Login</h1>
-  <label for="usuario">Usuário:</label>
-  <input id="usuario" #user class="form-control" type="email" name="" style="width:25%">
-  <label for="senha">Senha:</label>
-  <input id="senha" #pass class="form-control" type="password" name="" style="width:25%">
+<div class="form-group m-5 p-5 text-center">
+  <h1 class="text-center">Login</h1>
+  <div class="d-grid justify-content-center">
+    <label for="usuario" >Usuário:</label>
+    <input id="usuario" #user class="form-control" type="email">
+    <label for="senha" class="text-left">Senha:</label>
+    <input id="senha" #pass class="form-control text-left" type="password">
+  </div>
 
   <button type="submit" class="rounded-pill btn btn-primary" style="margin-top: 10px" (click)="login(user.value, pass.value)">Entrar</button>
 </div>

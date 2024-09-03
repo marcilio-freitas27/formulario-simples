@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CadastroService } from '../service/cadastro.service';
-import { Usuario } from '../models/usuario';
-import { faList } from '@fortawesome/free-solid-svg-icons';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
+import {Component,OnInit} from '@angular/core';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {faList} from '@fortawesome/free-solid-svg-icons';
+import {Usuario} from '../models/usuario';
+import {CadastroService} from '../service/cadastro.service';
+
 @Component({
   selector: 'app-cadastra-usuario',
   templateUrl: './cadastra-usuario.component.html',
@@ -19,6 +21,7 @@ export class CadastraUsuarioComponent implements OnInit {
     private cadastroService: CadastroService,
     private formBuilder: FormBuilder,
     private locate: Location,
+    private router: Router,
   ) {
     this.usuario = new Usuario('', '');
     this.lista = this.cadastroService.listarUsuario();
@@ -62,6 +65,6 @@ export class CadastraUsuarioComponent implements OnInit {
   }
 
   cancelar(){
-    this.locate.back();
+    this.router.navigate(["/"]);
   }
 }

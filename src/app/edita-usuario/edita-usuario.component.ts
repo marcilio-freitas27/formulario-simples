@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CadastroService } from '../service/cadastro.service';
-import { Usuario } from '../models/usuario';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Novousuario } from '../models/novousuario';
-import { Location } from '@angular/common';
-import { faList } from '@fortawesome/free-solid-svg-icons';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import {Location} from '@angular/common';
+import {Component,OnInit} from '@angular/core';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {ActivatedRoute,Router} from '@angular/router';
+import {faList} from '@fortawesome/free-solid-svg-icons';
+import {Novousuario} from '../models/novousuario';
+import {Usuario} from '../models/usuario';
+import {CadastroService} from '../service/cadastro.service';
 
 @Component({
   selector: 'app-edita-usuario',
@@ -23,6 +23,7 @@ export class EditaUsuarioComponent implements OnInit {
     formBuilder: FormBuilder,
     private locate: Location,
     private route: ActivatedRoute,
+    private router: Router,
     ) {
     this.count = 0;
     this.usuario = new Novousuario('', '');
@@ -43,7 +44,6 @@ export class EditaUsuarioComponent implements OnInit {
           Validators.maxLength(15),
           Validators.minLength(11),
           Validators.pattern('[0-9]{11}$'),
-          // Validators.pattern(/^\(\d{2}\) \d \d{4}-\d{4}$/),
         ],
       ],
     });
@@ -53,7 +53,7 @@ export class EditaUsuarioComponent implements OnInit {
   }
 
   cancelar(){
-    this.locate.back();
+    this.router.navigate(["/"]);
   }
 
   atualizar(nome: string, numero: string) {

@@ -22,3 +22,15 @@ fa-icon {
 .container{
   padding: 0;
 }
+
+body { 
+  padding-right: 0 !important 
+}
+
+@media(max-width: 520px){
+  nav{
+    display:grid !important;
+    justify-content: center !important;
+    justify-items: center !important;
+  }
+}
