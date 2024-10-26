@@ -1,14 +1,14 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CadastroService } from '../service/cadastro.service';
-import { Novousuario } from '../models/novousuario';
-import { Usuario } from '../models/usuario';
-import { faBarChart, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { ModalService } from '../service/modal.service';
-import { UsuarioService } from '../service/usuario.service';
-import { GeradorDocumentosUtil } from '../util/gerador-documentos.util';
+import {Component,OnInit} from '@angular/core';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {faBarChart,faPlus} from '@fortawesome/free-solid-svg-icons';
 import DataTable from 'datatables.net-dt';
+import {Novousuario} from '../models/novousuario';
+import {Usuario} from '../models/usuario';
+import {CadastroService} from '../service/cadastro.service';
+import {ModalService} from '../service/modal.service';
+import {UsuarioService} from '../service/usuario.service';
+import {GeradorDocumentosUtil} from '../util/gerador-documentos.util';
 
 @Component({
   selector: 'app-exibe-usuario',
@@ -72,13 +72,6 @@ export class ExibeUsuarioComponent implements OnInit {
     this.lista = this.cadastroService.listarUsuario();
     this.novo = this.cadastroService.listarNovo();
     this.modalService.getModal(this.id);
-
-    // retorna dados do usuario quando precisamos editar um campo
-
-    // this.formGroup.patchValue({
-    //   nome: this.lista[0]['nome'],
-    //   fone: this.lista[0]['telefone']
-    // })
   }
 
   ngAfterViewInit() {

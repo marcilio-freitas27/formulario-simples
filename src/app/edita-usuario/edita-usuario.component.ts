@@ -6,6 +6,7 @@ import {faList} from '@fortawesome/free-solid-svg-icons';
 import {Novousuario} from '../models/novousuario';
 import {Usuario} from '../models/usuario';
 import {CadastroService} from '../service/cadastro.service';
+import {UsuarioService} from '../service/usuario.service';
 
 @Component({
   selector: 'app-edita-usuario',
@@ -24,6 +25,7 @@ export class EditaUsuarioComponent implements OnInit {
     private locate: Location,
     private route: ActivatedRoute,
     private router: Router,
+    private usuarioService: UsuarioService,
     ) {
     this.count = 0;
     this.usuario = new Novousuario('', '');
@@ -50,6 +52,17 @@ export class EditaUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.buscarUsuarioPorCodigo();
+  }
+
+  buscarUsuarioPorCodigo(){
+    const id = this.route.snapshot.paramMap.get("id");
+    const usuario = this.cadastroService.listarUsuarioPorCodigo(Number(id) - 1);
+    this.formGroup.patchValue({
+        nome: usuario.nome,
+        fone: usuario.telefone
+      }
+    )
   }
 
   cancelar(){

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Novousuario } from '../models/novousuario';
-import { Usuario } from '../models/usuario';
+import {Injectable} from '@angular/core';
+import {Novousuario} from '../models/novousuario';
+import {Usuario} from '../models/usuario';
 
 
 @Injectable({
@@ -29,6 +29,10 @@ export class CadastroService {
 
   listarUsuario(): Usuario[] {
     return this.user;
+  }
+
+  listarUsuarioPorCodigo(id: number): Usuario{
+    return this.user[id];
   }
 
   listarNovo(): Novousuario[] {
